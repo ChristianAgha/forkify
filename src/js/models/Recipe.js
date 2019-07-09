@@ -5,7 +5,7 @@ import {fractToDecimal } from '../helpers';
 export default class Recipe {
     constructor(id) {
         this.id = id;
-    };
+    }
 
     async getRecipe() {
         try {
@@ -19,18 +19,18 @@ export default class Recipe {
             console.log(error);
             alert('Something went wrong :(');
         }
-    };
+    }
 
     calcTime() {
         // Assuming each 3 ingredients take 15 minutes
         const numIng = this.ingredients.length;
         const periods = Math.ceil(numIng / 3);
         this.time = periods * 15;
-    };
+    }
 
     calcServings() {
         this.servings = 4;
-    };
+    }
 
     parseIngredients() {
         const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds'];
@@ -77,7 +77,7 @@ export default class Recipe {
                     count: parseInt(arrIng[0], 10),
                     unit: '',
                     ingredient: arrIng.slice(1).join(' ')
-                }
+                };
             } else if (unitIndex === -1) {
                 //There is no unit and no number in the first position
                 objIng = {
@@ -85,12 +85,12 @@ export default class Recipe {
                     unit: '',
                     //ingredient: ''
                     ingredient
-                }
+                };
             }
             return objIng;
         });
         this.ingredients = newIngredients;
-    };
+    }
 
     updateServings(type) {
         // Update the servings
@@ -102,4 +102,4 @@ export default class Recipe {
 
         this.servings = newServings;
     }
-};
+}
